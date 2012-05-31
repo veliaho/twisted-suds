@@ -19,27 +19,22 @@ The I{2nd generation} service proxy provides access to web services.
 See I{README.txt}
 """
 
-import suds
-import suds.metrics as metrics
+import txsuds.metrics as metrics
 from cookielib import CookieJar
-from suds import *
-from suds.reader import DefinitionsReader
-from suds.transport import TransportError, Request
-from suds.transport.https import HttpAuthenticated
-from suds.transport.twisted_transport import TwistedTransport
-from suds.servicedefinition import ServiceDefinition
-from suds import sudsobject
-from sudsobject import Factory as InstFactory
-from sudsobject import Object
-from suds.resolver import PathResolver
-from suds.builder import Builder
-from suds.wsdl import Definitions
-from suds.cache import ObjectCache
-from suds.sax.document import Document
-from suds.sax.parser import Parser
-from suds.options import Options
-from suds.properties import Unskin
-from urlparse import urlparse
+from txsuds import *
+from txsuds.reader import DefinitionsReader
+from txsuds.transport import TransportError, Request
+from txsuds.transport.twisted_transport import TwistedTransport
+from txsuds.servicedefinition import ServiceDefinition
+from txsuds import sudsobject
+from txsudsobject import Factory as InstFactory
+from txsuds.resolver import PathResolver
+from txsuds.builder import Builder
+from txsuds.wsdl import Definitions
+from txsuds.cache import ObjectCache
+from txsuds.sax.parser import Parser
+from txsuds.options import Options
+from txsuds.properties import Unskin
 from copy import deepcopy
 from suds.plugin import PluginContainer
 from logging import getLogger

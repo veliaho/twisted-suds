@@ -19,16 +19,17 @@ Provides classes for the (WS) SOAP I{rpc/literal} and I{rpc/encoded} bindings.
 """
 
 from logging import getLogger
-from suds import *
-from suds.mx.encoded import Encoded as MxEncoded
-from suds.umx.encoded import Encoded as UmxEncoded
-from suds.bindings.binding import Binding
-from suds.sax.element import Element
+from txsuds import *
+from txsuds.mx.encoded import Encoded as MxEncoded
+from txsuds.umx.encoded import Encoded as UmxEncoded
+from txsuds.bindings.binding import Binding
+from txsuds.sax.element import Element
 
 log = getLogger(__name__)
 
 
 encns = ('SOAP-ENC', 'http://schemas.xmlsoap.org/soap/encoding/')
+
 
 class RPC(Binding):
     """

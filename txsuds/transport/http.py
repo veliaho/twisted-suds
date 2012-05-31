@@ -21,11 +21,11 @@ Contains classes for basic HTTP transport implementations.
 import urllib2 as u2
 import base64
 import socket
-from suds.transport import *
-from suds.properties import Unskin
-from urlparse import urlparse
+from txsuds.transport import *
+from txsuds.properties import Unskin
 from cookielib import CookieJar
 from logging import getLogger
+
 
 log = getLogger(__name__)
 

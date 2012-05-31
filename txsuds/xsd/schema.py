@@ -23,20 +23,16 @@ tranparent referenced type resolution and targeted denormalization.
 """
 
 
-import suds.metrics
-from suds import *
-from suds.xsd import *
-from suds.xsd.sxbuiltin import *
-from suds.xsd.sxbasic import Factory as BasicFactory
-from suds.xsd.sxbuiltin import Factory as BuiltinFactory
-from suds.xsd.sxbase import SchemaObject
-from suds.xsd.deplist import DepList
-from suds.sax.element import Element
-from suds.sax import splitPrefix, Namespace
+from txsuds import *
+from txsuds.xsd import *
+from txsuds.xsd.sxbuiltin import *
+from txsuds.xsd.sxbasic import Factory as BasicFactory
+from txsuds.xsd.deplist import DepList
+from txsuds.sax.element import Element
+from txsuds.sax import splitPrefix, Namespace
 from logging import getLogger
-from urlparse import urljoin
-
 from twisted.internet import defer
+
 
 log = getLogger(__name__)
 

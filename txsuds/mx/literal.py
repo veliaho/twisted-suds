@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -19,13 +19,13 @@ Provides literal I{marshaller} classes.
 """
 
 from logging import getLogger
-from suds import *
-from suds.mx import *
-from suds.mx.core import Core
-from suds.mx.typer import Typer
-from suds.resolver import GraphResolver, Frame
-from suds.sax.element import Element
-from suds.sudsobject import Factory
+from txsuds import *
+from txsuds.mx import *
+from txsuds.mx.core import Core
+from txsuds.mx.typer import Typer
+from txsuds.resolver import GraphResolver, Frame
+from txsuds.sax.element import Element
+from txsuds.sudsobject import Factory
 
 log = getLogger(__name__)
 
@@ -39,7 +39,6 @@ log = getLogger(__name__)
 Content.extensions.append('type')
 Content.extensions.append('real')
 Content.extensions.append('ancestry')
-
 
 
 class Typed(Core):
@@ -65,10 +64,10 @@ class Typed(Core):
         self.schema = schema
         self.xstq = xstq
         self.resolver = GraphResolver(self.schema)
-    
+
     def reset(self):
         self.resolver.reset()
-            
+
     def start(self, content):
         #
         # Start marshalling the 'content' by ensuring that both the
@@ -105,7 +104,7 @@ class Typed(Core):
             return False
         else:
             return True
-        
+
     def suspend(self, content):
         #
         # Suspend to process a list content.  Primarily, this
@@ -113,7 +112,7 @@ class Typed(Core):
         # stack so the list items can be marshalled.
         #
         self.resolver.pop()
-    
+
     def resume(self, content):
         #
         # Resume processing a list content.  To do this, we
@@ -121,7 +120,7 @@ class Typed(Core):
         # back onto the resolver stack.
         #
         self.resolver.push(Frame(content.type))
-        
+
     def end(self, parent, content):
         #
         # End processing the content.  Make sure the content
@@ -136,7 +135,7 @@ class Typed(Core):
             raise Exception, \
                 'content (end) mismatch: top=(%s) cont=(%s)' % \
                 (current, content)
-    
+
     def node(self, content):
         #
         # Create an XML node and namespace qualify as defined
@@ -151,7 +150,7 @@ class Typed(Core):
         self.encode(node, content)
         log.debug('created - node:\n%s', node)
         return node
-    
+
     def setnil(self, node, content):
         #
         # Set the 'node' nil only if the XSD type
@@ -159,7 +158,7 @@ class Typed(Core):
         #
         if content.type.nillable:
             node.setnil()
-            
+
     def setdefault(self, node, content):
         #
         # Set the node to the default value specified
@@ -171,7 +170,7 @@ class Typed(Core):
         else:
             node.setText(default)
         return default
-    
+
     def optional(self, content):
         if content.type.optional():
             return True
@@ -179,7 +178,7 @@ class Typed(Core):
             if a.optional():
                 return True
         return False
-    
+
     def encode(self, node, content):
         # Add (soap) encoding information only if the resolved
         # type is derived by extension.  Further, the xsi:type values
@@ -196,7 +195,7 @@ class Typed(Core):
         if self.xstq:
             ns = content.real.namespace('ns1')
         Typer.manual(node, name, ns)
-    
+
     def skip(self, content):
         """
         Get whether to skip this I{content}.
@@ -214,7 +213,7 @@ class Typed(Core):
             if isinstance(v, (list,tuple)) and len(v) == 0:
                 return True
         return False
-    
+
     def optional(self, content):
         if content.type.optional():
             return True
@@ -222,7 +221,7 @@ class Typed(Core):
             if a.optional():
                 return True
         return False
-    
+
     def translate(self, content):
         """
         Translate using the XSD type information.
@@ -246,7 +245,7 @@ class Typed(Core):
         v = content.real.translate(v, False)
         content.value = v
         return self
-        
+
     def sort(self, content):
         """
         Sort suds object attributes based on ordering defined

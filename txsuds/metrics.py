@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -21,10 +21,11 @@ designed for collecting and reporting performance metrics.
 
 import time
 from logging import getLogger
-from suds import *
+from txsuds import *
 from math import modf
 
 log = getLogger(__name__)
+
 
 class Timer:
 
@@ -43,7 +44,7 @@ class Timer:
         return self
 
     def duration(self):
-        return ( self.stopped - self.started )
+        return (self.stopped - self.started)
 
     def __str__(self):
         if self.started == 0:
@@ -54,7 +55,7 @@ class Timer:
         jmod = ( lambda m : (m[1], m[0]*1000) )
         if duration < 1:
             ms = (duration*1000)
-            return '%d (ms)' % ms           
+            return '%d (ms)' % ms
         if duration < 60:
             m = modf(duration)
             return '%d.%.3d (seconds)' % jmod(m)

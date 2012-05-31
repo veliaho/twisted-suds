@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -17,12 +17,11 @@
 import sys
 sys.path.append('../')
 
-import logging
 import traceback as tb
 import suds.metrics as metrics
 from tests import *
-from suds import WebFault
-from suds.client import Client
+from txsuds import WebFault
+from txsuds.client import Client
 
 errors = 0
 
@@ -35,7 +34,7 @@ setup_logging()
 
 def start(url):
     global errors
-    print '\n________________________________________________________________\n' 
+    print '\n________________________________________________________________\n'
     print 'Test @ ( %s ) %d' % (url, errors)
 
 try:
@@ -74,11 +73,11 @@ except WebFault, f:
     errors += 1
     print f
     print f.fault
-except Exception, e: 
+except Exception, e:
     errors += 1
     print e
     tb.print_exc()
-    
+
 try:
     url = 'http://jira.atlassian.com/rpc/soap/jirasoapservice-v2?wsdl'
     start(url)
@@ -92,11 +91,11 @@ except WebFault, f:
     errors += 1
     print f
     print f.fault
-except Exception, e: 
+except Exception, e:
     errors += 1
     print e
     tb.print_exc()
-    
+
 try:
     url = 'http://jira.atlassian.com/rpc/soap/jirasoapservice-v2?wsdl'
     start(url+'  ** cloned **')
@@ -110,11 +109,11 @@ except WebFault, f:
     errors += 1
     print f
     print f.fault
-except Exception, e: 
+except Exception, e:
     errors += 1
     print e
     tb.print_exc()
-    
+
 try:
     url = ' http://www.boyzoid.com/comp/randomQuote.cfc?wsdl '
     start(url)
@@ -129,7 +128,7 @@ except Exception, e:
     errors += 1
     print e
     tb.print_exc()
-    
+
 try:
     url = 'http://www.zenfolio.com/zf/api/zfapi.asmx?wsdl'
     start(url)
@@ -149,7 +148,7 @@ except Exception, e:
     errors += 1
     print e
     tb.print_exc()
-    
+
 try:
     url = 'http://cert.synxis.com/interface/ChannelConnect.asmx?WSDL'
     start(url)
@@ -247,7 +246,7 @@ except Exception, e:
     errors += 1
     print e
     tb.print_exc()
-    
+
 try:
     url = "http://arcweb.esri.com/services/v2/RouteFinder.wsdl"
     start(url)

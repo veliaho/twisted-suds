@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -19,10 +19,9 @@ The I{soaparray} module provides XSD extensions for handling
 soap (section 5) encoded arrays.
 """
 
-from suds import *
-from logging import getLogger
-from suds.xsd.sxbasic import Factory as SXFactory
-from suds.xsd.sxbasic import Attribute as SXAttribute
+from txsuds import *
+from txsuds.xsd.sxbasic import Factory as SXFactory
+from txsuds.xsd.sxbasic import Attribute as SXAttribute
 
 
 class Attribute(SXAttribute):
@@ -43,12 +42,12 @@ class Attribute(SXAttribute):
             self.aty = aty[:-2]
         else:
             self.aty = aty
-        
+
     def autoqualified(self):
         aqs = SXAttribute.autoqualified(self)
         aqs.append('aty')
         return aqs
-    
+
     def description(self):
         d = SXAttribute.description(self)
         d = d+('aty',)

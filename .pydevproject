@@ -4,9 +4,9 @@
 <pydev_project>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 2.6</pydev_property>
 <pydev_pathproperty name="org.python.pydev.PROJECT_SOURCE_PATH">
-<path>/suds</path>
-<path>/suds/suds</path>
-<path>/suds/tests</path>
+<path>/txsuds</path>
+<path>/txsuds/suds</path>
+<path>/txsuds/tests</path>
 </pydev_pathproperty>
 <pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
 </pydev_pathproperty>

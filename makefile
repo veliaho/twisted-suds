@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -49,11 +49,11 @@ rdocs : docs
 docs :
 	rm -rf doc
 	rm -f /tmp/$(DOCTAR)
-	epydoc -vo doc `find suds -name "*.py"`
+	epydoc -vo doc `find txsuds -name "*.py"`
 	tar czvf /tmp/$(DOCTAR) doc
 
 pdf :
-	epydoc -vo doc --pdf `find suds -name \*.py`
+	epydoc -vo doc --pdf `find txsuds -name \*.py`
 	mv doc/api.pdf doc/sudsapi.pdf
 
 clean :

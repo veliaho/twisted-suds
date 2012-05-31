@@ -19,10 +19,10 @@ Provides classes for the (WS) SOAP I{document/literal}.
 """
 
 from logging import getLogger
-from suds import *
-from suds.bindings.binding import Binding
-from suds.sax.element import Attribute
-from suds.sax.element import Element
+from txsuds import *
+from txsuds.bindings.binding import Binding
+from txsuds.sax.element import Attribute
+from txsuds.sax.element import Element
 
 log = getLogger(__name__)
 

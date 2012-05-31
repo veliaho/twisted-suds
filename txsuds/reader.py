@@ -19,10 +19,10 @@ Contains xml document reader classes.
 """
 
 
-from suds.sax.parser import Parser
-from suds.transport import Request
-from suds.cache import Cache, NoCache
-from suds.store import DocumentStore
+from txsuds.sax.parser import Parser
+from txsuds.transport import Request
+from txsuds.cache import NoCache
+from txsuds.store import DocumentStore
 from suds.plugin import PluginContainer
 from logging import getLogger
 

@@ -20,13 +20,13 @@ I{basic} schema objects.
 """
 
 from logging import getLogger
-from suds import *
-from suds.xsd import *
-from suds.xsd.sxbase import *
-from suds.xsd.query import *
-from suds.sax import splitPrefix, Namespace
-from suds.transport import TransportError
-from suds.reader import DocumentReader
+from txsuds import *
+from txsuds.xsd import *
+from txsuds.xsd.sxbase import *
+from txsuds.xsd.query import *
+from txsuds.sax import Namespace
+from txsuds.transport import TransportError
+from txsuds.reader import DocumentReader
 from urlparse import urljoin
 
 from twisted.internet import defer

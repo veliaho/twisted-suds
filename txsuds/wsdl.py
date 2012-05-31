@@ -21,18 +21,17 @@ found in the document.
 """
 
 from logging import getLogger
-from suds import *
-from suds.sax import splitPrefix
-from suds.sax.element import Element
-from suds.bindings.document import Document
-from suds.bindings.rpc import RPC, Encoded
-from suds.xsd import qualify, Namespace
-from suds.xsd.schema import Schema, SchemaCollection
-from suds.xsd.query import ElementQuery
-from suds.sudsobject import Object, Facade, Metadata
-from suds.reader import DocumentReader, DefinitionsReader
+from txsuds import *
+from txsuds.sax.element import Element
+from txsuds.bindings.document import Document
+from txsuds.bindings.rpc import RPC, Encoded
+from txsuds.xsd import qualify, Namespace
+from txsuds.xsd.schema import Schema, SchemaCollection
+from txsuds.xsd.query import ElementQuery
+from txsuds.sudsobject import Object, Facade, Metadata
+from txsuds.reader import DocumentReader
 from urlparse import urljoin
-import re, soaparray
+import re
 
 from twisted.internet import defer
 

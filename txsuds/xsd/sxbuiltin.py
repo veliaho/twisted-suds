@@ -20,10 +20,10 @@ XSD I{builtin} schema objects.
 """
 
 from logging import getLogger
-from suds import *
-from suds.xsd import *
-from suds.sax.date import *
-from suds.xsd.sxbase import XBuiltin
+from txsuds import *
+from txsuds.xsd import *
+from txsuds.sax.date import *
+from txsuds.xsd.sxbase import XBuiltin
 import datetime as dt
 
 

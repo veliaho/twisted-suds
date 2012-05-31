@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -17,14 +17,10 @@
 import sys
 sys.path.append('../')
 
-import logging
-import traceback as tb
-import urllib2
-import suds.metrics as metrics
 import traceback as tb
 from tests import *
-from suds import WebFault
-from suds.client import Client
+from txsuds import WebFault
+from txsuds.client import Client
 
 errors = 0
 
@@ -32,10 +28,11 @@ setup_logging()
 
 #logging.getLogger('suds.client').setLevel(logging.DEBUG)
 
+
 def start(url):
-    print '\n________________________________________________________________\n' 
+    print '\n________________________________________________________________\n'
     print 'Test @ ( %s )' % url
-    
+
 try:
     url = 'http://localhost:9090/jasperserver-pro/services/repository?wsdl'
     start(url)
