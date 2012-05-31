@@ -27,7 +27,7 @@ from txsuds.transport import TransportError, Request
 from txsuds.transport.twisted_transport import TwistedTransport
 from txsuds.servicedefinition import ServiceDefinition
 from txsuds import sudsobject
-from txsudsobject import Factory as InstFactory
+from sudsobject import Factory as InstFactory
 from txsuds.resolver import PathResolver
 from txsuds.builder import Builder
 from txsuds.wsdl import Definitions
