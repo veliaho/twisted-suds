@@ -23,7 +23,7 @@ from txsuds.sax.parser import Parser
 from txsuds.transport import Request
 from txsuds.cache import NoCache
 from txsuds.store import DocumentStore
-from suds.plugin import PluginContainer
+from txsuds.plugin import PluginContainer
 from logging import getLogger
 
 from twisted.internet import defer

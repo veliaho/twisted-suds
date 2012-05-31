@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -19,15 +19,16 @@ Provides XML I{document} classes.
 """
 
 from logging import getLogger
-from suds import *
-from suds.sax import *
-from suds.sax.element import Element
+from txsuds import *
+from txsuds.sax import *
+from txsuds.sax.element import Element
 
 log = getLogger(__name__)
 
+
 class Document(Element):
     """ simple document """
-    
+
     DECL = '<?xml version="1.0" encoding="UTF-8"?>'
 
     def __init__(self, root=None):
@@ -45,7 +46,7 @@ class Document(Element):
             return self.children[0]
         else:
             return None
-        
+
     def str(self):
         """
         Get a string representation of this XML fragment.
@@ -59,7 +60,7 @@ class Document(Element):
             s.append('\n')
             s.append(root.str())
         return ''.join(s)
-    
+
     def plain(self):
         """
         Get a string representation of this XML fragment.
@@ -75,6 +76,6 @@ class Document(Element):
 
     def __str__(self):
         return unicode(self).encode('utf-8')
-    
+
     def __unicode__(self):
         return self.str()

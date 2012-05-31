@@ -19,7 +19,7 @@ Contains basic caching classes.
 """
 
 import os
-import suds
+import txsuds as suds
 from tempfile import gettempdir as tmp
 from txsuds.transport import *
 from txsuds.sax.parser import Parser

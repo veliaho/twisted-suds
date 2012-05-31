@@ -21,7 +21,7 @@ The I{query} module defines a class for performing schema queries.
 from logging import getLogger
 from txsuds import *
 from txsuds.sudsobject import *
-from txsuds.xsd import isqref
+from txsuds.xsd import qualify, isqref
 from txsuds.xsd.sxbuiltin import Factory
 
 log = getLogger(__name__)

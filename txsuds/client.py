@@ -36,7 +36,7 @@ from txsuds.sax.parser import Parser
 from txsuds.options import Options
 from txsuds.properties import Unskin
 from copy import deepcopy
-from suds.plugin import PluginContainer
+from txsuds.plugin import PluginContainer
 from logging import getLogger
 
 log = getLogger(__name__)
@@ -203,6 +203,7 @@ class Client(object):
 
     def __unicode__(self):
         s = ['\n']
+        import txsuds as suds
         build = suds.__build__.split()
         s.append('Suds ( https://fedorahosted.org/suds/ )')
         s.append('  version: %s' % suds.__version__)

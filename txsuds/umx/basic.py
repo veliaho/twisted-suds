@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -19,16 +19,16 @@ Provides basic unmarshaller classes.
 """
 
 from logging import getLogger
-from suds import *
-from suds.umx import *
-from suds.umx.core import Core
+from txsuds import *
+from txsuds.umx import *
+from txsuds.umx.core import Core
 
 
 class Basic(Core):
     """
     A object builder (unmarshaller).
     """
-        
+
     def process(self, node):
         """
         Process an object graph representation of the xml I{node}.

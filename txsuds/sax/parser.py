@@ -1,6 +1,6 @@
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the (LGPL) GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 3 of the 
+# published by the Free Software Foundation; either version 3 of the
 # License, or (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -27,13 +27,13 @@ containing the prefix and the URI.  Eg: I{('tns', 'http://myns')}
 """
 
 from logging import getLogger
-import suds.metrics
-from suds import *
-from suds.sax import *
-from suds.sax.document import Document
-from suds.sax.element import Element
-from suds.sax.text import Text
-from suds.sax.attribute import Attribute
+from txsuds import metrics
+from txsuds import *
+from txsuds.sax import *
+from txsuds.sax.document import Document
+from txsuds.sax.element import Element
+from txsuds.sax.text import Text
+from txsuds.sax.attribute import Attribute
 from xml.sax import make_parser, InputSource, ContentHandler
 from xml.sax.handler import feature_external_ges
 from cStringIO import StringIO
@@ -43,10 +43,10 @@ log = getLogger(__name__)
 
 class Handler(ContentHandler):
     """ sax hanlder """
-    
+
     def __init__(self):
         self.nodes = [Document()]
- 
+
     def startElement(self, name, attrs):
         top = self.top()
         node = Element(unicode(name), parent=top)
@@ -60,7 +60,7 @@ class Handler(ContentHandler):
         node.charbuffer = []
         top.append(node)
         self.push(node)
-        
+
     def mapPrefix(self, node, attribute):
         skip = False
         if attribute.name == 'xmlns':
@@ -72,7 +72,7 @@ class Handler(ContentHandler):
             node.nsprefixes[prefix] = unicode(attribute.value)
             skip = True
         return skip
- 
+
     def endElement(self, name):
         name = unicode(name)
         current = self.top()
@@ -86,7 +86,7 @@ class Handler(ContentHandler):
             self.pop()
         else:
             raise Exception('malformed document')
- 
+
     def characters(self, content):
         text = unicode(content)
         node = self.top()
@@ -98,14 +98,14 @@ class Handler(ContentHandler):
 
     def pop(self):
         return self.nodes.pop()
- 
+
     def top(self):
         return self.nodes[len(self.nodes)-1]
 
 
 class Parser:
     """ SAX Parser """
-    
+
     @classmethod
     def saxparser(cls):
         p = make_parser()
@@ -113,7 +113,7 @@ class Parser:
         h = Handler()
         p.setContentHandler(h)
         return (p, h)
-        
+
     def parse(self, file=None, string=None):
         """
         SAX parse XML text.

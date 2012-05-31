@@ -21,6 +21,7 @@ from tests import *
 from txsuds import *
 from txsuds.client import Client
 from datetime import datetime
+from twisted.internet import defer
 
 errors = 0
 
@@ -36,6 +37,15 @@ print 'url=%s' % url
 # create a service client using the wsdl.
 #
 client = Client(url)
+
+
+@defer.inlineCallbacks
+def connect():
+    yield client.connect()
+print 'connecting...',
+connect()
+print 'connected'
+
 
 #
 # print the service (introspection)

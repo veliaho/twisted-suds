@@ -5,7 +5,6 @@ import urlparse
 
 log = logging.getLogger(__name__)
 
-import twisted.internet
 from twisted.internet           import defer, reactor
 from twisted.internet.endpoints import TCP4ClientEndpoint
 from twisted.internet.protocol  import ClientCreator, ClientFactory, Protocol
@@ -17,7 +16,7 @@ from twisted.web._newclient     import HTTP11ClientProtocol, Request
 from OpenSSL                    import crypto
 from zope.interface             import implements
 
-from suds.transport import Reply, Transport
+from txsuds.transport import Reply, Transport
 
 
 class StringResponseConsumer(Protocol):
@@ -199,7 +198,7 @@ class TwistedTransport(Transport):
         Constructor.
         """
         Transport.__init__(self)
-        from suds.transport.options import Options
+        from txsuds.transport.options import Options
         self.options = Options()
         del Options
         self._contextFactory = None

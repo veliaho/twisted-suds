@@ -19,8 +19,8 @@ Contains classes for transport options.
 """
 
 
-from suds.transport import *
-from suds.properties import *
+from txsuds.transport import *
+from txsuds.properties import *
 
 
 class Options(Skin):

@@ -20,8 +20,8 @@ between XML dates and python objects.
 """
 
 from logging import getLogger
-from suds import *
-from suds.xsd import *
+from txsuds import *
+from txsuds.xsd import *
 import time
 import datetime as dt
 import re
