@@ -105,7 +105,6 @@ class Client(object):
         options           = Options()
         options.transport = TwistedTransport()
         self.options      = options
-        options.cache     = ObjectCache(days = 1)
         self.factory      = None
         self.service      = None
         self.sd           = []
